@@ -22,27 +22,44 @@ This section will let you get the modified version of Activity Browser and add t
 
 ## Get Activity Browser with plugins 
 
-Setup a dev environment and get the modified version of Activity Browser. You will need to have python3 and conda installed (as some dependencies are not on pip).
+You can install and start this activity-browser version like this:
+
+```bash
+conda create -n ab -c conda-forge -c cmutel -c bsteubing -c pan6ora activity-browser-plugin-manager
+conda activate ab
+activity-browser
+```
+
+If you need latest changes (from both the original project and this fork) you can use the dev version:
+
+```bash
+conda create -n ab -c conda-forge -c cmutel -c bsteubing -c pan6ora activity-browser-plugin-manager-dev
+conda activate ab
+activity-browser
+```
+
+## Setup dev environment
+
+You will need to have python3 and conda installed (as some dependencies are not on pip).
+
+Then, create the environment with the following commands:
 
 ```
-conda create -n local_dev -c conda-forge -c cmutel -c bsteubing activity-browser-dev
+conda create -n local_dev -c conda-forge -c cmutel -c bsteubing -c pan6ora activity-browser-plugin-manager-dev
 conda activate local_dev
-conda remove --force activity-browser-dev
+conda remove --force activity-browser-plugin-manager-dev
 ```
 
-This create a conda environment named local_dev with all Activity Browser packages, then remove the package activity-browser itself (as we are going to launch it directly from the content of this repository).
+This create a conda environment named `local_dev` with all Activity Browser packages, then remove the package activity-browser itself (as we are going to launch it directly from the content of this repository).
 
-To start Activity Browser clone it's fork, switch to conda environment and run run-activity-browser.py in the plugin-manager branch.
+To start Activity Browser clone the repo, switch to conda environment and run `run-activity-browser.py`.
+
+Note: don't start from `anaconda` or `anaconda-dev` branches as these are only for anaconda deployement. The best practice is to start a branch from `plugin-manager` one. If you need latest changes from the original project, start from the `master` branch and merge `plugin-manager`.
 
 ```
-git clone git@github.com:Pan6ora/activity-browser.git
-cd activity-browser
-git checkout plugin-manager
 conda activate local_dev
-python run-activity-browser.py
+python activity-browser/run-activity-browser.py
 ```
-
-Activity Browser should start. 
 
 ## Add the template plugin
 
