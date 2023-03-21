@@ -6,6 +6,10 @@ source:
   git_rev: main
   git_url: https://github.com/Pan6ora/ab-plugin-Notebook.git
 
+build:
+  number: 0
+  script: "{{ PYTHON }} -m pip install . --no-deps --ignore-installed -vv "
+
 requirements:
   build:
     - python =3.9
@@ -15,6 +19,10 @@ requirements:
     - python >=3.8,<3.10
     - notebook
     - ipywidgets
+
+test:
+  imports:
+    - ab-plugin-notebook
 
 about:
   home: https://github.com/Pan6ora/ab-plugin-Notebook
