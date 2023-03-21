@@ -2,8 +2,6 @@
 import os
 from setuptools import setup
 
-from .metadata import *
-
 packages = []
 root_dir = os.path.dirname(__file__)
 if root_dir:
@@ -19,17 +17,38 @@ for dirpath, dirnames, filenames in os.walk('plugin'):
             pkg = pkg.replace(os.path.altsep, '.')
         packages.append(pkg)
 
+if 'VERSION' in os.environ:
+    version = os.environ['VERSION']
+else:
+    version = os.environ.get('GIT_DESCRIBE_TAG', '0.0.0')
+
 setup(
-    name=name,
+    name='ab-plugin-notebook',
     version=version,
     packages=packages,
     include_package_data=True,
-    author=author,
-    author_email=author_email,
+    author='Rémy Le Calloch',
+    author_email='remy@lecalloch.net',
     license=open('LICENSE.txt').read(),
     install_requires=[], # dependency management in conda recipe
-    url=url,
+    url='https://github.com/Pan6ora/ab-plugin-Notebook',
     long_description=open('README.md').read(),
-    description=description,
-    classifiers=classifiers,
+    description='Launch Jupyter Notebook directly in Activity-Browser',
+    classifiers=[
+        'Intended Audience :: End Users/Desktop',
+        'Intended Audience :: Developers',
+        'Intended Audience :: Science/Research',
+        'License :: OSI Approved :: GNU Lesser General Public License v3 or later (LGPLv3+)',
+        'Operating System :: MacOS :: MacOS X',
+        'Operating System :: Microsoft :: Windows',
+        'Operating System :: POSIX',
+        'Programming Language :: Python',
+        'Programming Language :: Python :: 3',
+        'Programming Language :: Python :: 3.6',
+        'Programming Language :: Python :: 3.7',
+        'Programming Language :: Python :: 3.8',
+        'Topic :: Scientific/Engineering :: Information Analysis',
+        'Topic :: Scientific/Engineering :: Mathematics',
+        'Topic :: Scientific/Engineering :: Visualization',
+    ],
     )

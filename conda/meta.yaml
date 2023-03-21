@@ -1,0 +1,30 @@
+package:
+  name: ab-plugin-notebook
+  version: "{{ GIT_DESCRIBE_TAG }}"
+
+source:
+  git_rev: main
+  git_url: https://github.com/Pan6ora/ab-plugin-Notebook.git
+
+requirements:
+  build:
+    - python
+    - setuptools
+    - conda-verify
+  run:
+    - python >=3.8,<3.10
+    - notebook
+    - ipywidgets
+
+about:
+  home: https://github.com/Pan6ora/ab-plugin-Notebook
+  license: LGPL3+
+  license_family: LGPL
+  license_file: LICENSE.txt
+  summary: Launch Jupyter Notebook in Activity-Browser
+  description: |
+    The [Activity Browser](https://github.com/LCA-ActivityBrowser/activity-browser)
+    is a graphical user interface for the [brightway2](https://brightway.dev/)
+    advanced life cycle assessment framework.
+    This plugin starts a Jupyter Notebook server and display its web interface inside
+    Activity Browser.
