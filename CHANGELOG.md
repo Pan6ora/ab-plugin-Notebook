@@ -9,6 +9,21 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 [Unreleased]
 ============
 
+[0.1.1] - 2023-21-03
+====================
+
+Added
+-----
+
+ - Github worklow for Anaconda package deployement
+
+Added
+-----
+
+ - Empty plugin template
+ - template.plugin archive
+ - add README with explanations
+
 [0.1.0] - 2022-28-07
 ====================
 
