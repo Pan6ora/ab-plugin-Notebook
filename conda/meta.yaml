@@ -20,10 +20,6 @@ requirements:
     - notebook
     - ipywidgets
 
-test:
-  imports:
-    - ab-plugin-notebook
-
 about:
   home: https://github.com/Pan6ora/ab-plugin-Notebook
   license: LGPL3+

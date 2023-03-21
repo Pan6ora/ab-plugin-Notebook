@@ -5,7 +5,7 @@ from time import sleep
 import activity_browser as ab
 import os
 
-from .plugin.layouts.tabs import LeftTab, RightTab
+from .layouts.tabs import LeftTab, RightTab
 from .metadata import infos
 
 class Plugin(ab.Plugin):

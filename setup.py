@@ -8,7 +8,7 @@ if root_dir:
     os.chdir(root_dir)
 accepted_filetypes = (".html", ".png", ".svg", ".js", ".css")
 
-for dirpath, dirnames, filenames in os.walk('plugin'):
+for dirpath, dirnames, filenames in os.walk('notebook'):
     # Ignore dirnames that start with '.'
     if ('__init__.py' in filenames
             or any(x.endswith(accepted_filetypes) for x in filenames)):
@@ -21,7 +21,7 @@ if 'VERSION' in os.environ:
     version = os.environ['VERSION']
 else:
     version = os.environ.get('GIT_DESCRIBE_TAG', '0.0.0')
-
+print(packages)
 setup(
     name='ab-plugin-notebook',
     version=version,
