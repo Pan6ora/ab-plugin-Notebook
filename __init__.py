@@ -17,11 +17,10 @@ class Plugin(ab.Plugin):
         files_path = bw.projects.request_directory(f"plugins/{infos['name']}/files")
         config_path = f"{ab.settings.ab_settings.plugins_dir}/Notebook/includes/jupyter_config"
 
-        self.server = subprocess.Popen(["jupyter","notebook",
-                        f"--notebook-dir={files_path}",
-                        f"--config={config_path}/jupyter_notebook_config.py",
-                        "--NotebookApp.extra_static_paths",
-                        f"{config_path}/custom"],
+        self.server = subprocess.Popen([
+                        "env", f"JUPYTER_CONFIG_DIR={config_path}",
+                        "jupyter","notebook",
+                        f"--notebook-dir={files_path}"],
                         stdin=None)
         sleep(2)
 
