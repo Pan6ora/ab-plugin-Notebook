@@ -7,11 +7,13 @@ import activity_browser as ab
 import os
 
 from .layouts.tabs import LeftTab, RightTab
-from .metadata import infos
 
 class Plugin(ab.Plugin):
 
     def __init__(self):
+        infos = {
+            'name': "Notebook",
+        }
         ab.Plugin.__init__(self, infos)
         self.server = None
 
@@ -34,9 +36,6 @@ class Plugin(ab.Plugin):
         self.server_kill()
 
     def remove(self):
-        self.server_kill()
-
-    def delete(self):
         self.server_kill()
 
     def server_kill(self):
