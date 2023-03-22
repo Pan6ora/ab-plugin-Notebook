@@ -1,4 +1,5 @@
 import subprocess
+import pkg_resources
 import brightway2 as bw
 from re import search
 from time import sleep
@@ -16,8 +17,8 @@ class Plugin(ab.Plugin):
 
     def load(self):
         files_path = bw.projects.request_directory(f"plugins/{infos['name']}/files")
-        config_path = f"{ab.settings.ab_settings.plugins_dir}/Notebook/includes/jupyter_config"
-
+        config_path = pkg_resources.resource_filename(__name__, 'jupyter_config')
+        
         self.server = subprocess.Popen([
                         "env", f"JUPYTER_CONFIG_DIR={config_path}",
                         "jupyter","notebook",

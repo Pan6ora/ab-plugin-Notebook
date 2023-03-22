@@ -26,7 +26,6 @@ setup(
     name='ab-plugin-notebook',
     version=version,
     packages=packages,
-    include_package_data=True,
     author='Rémy Le Calloch',
     author_email='remy@lecalloch.net',
     license=open('LICENSE.txt').read(),
@@ -34,4 +33,5 @@ setup(
     url='https://github.com/Pan6ora/ab-plugin-Notebook',
     long_description=open('README.md').read(),
     description='Launch Jupyter Notebook directly in Activity-Browser',
+    package_data={'': ['jupyter_config/jupyter_notebook_config.py', 'jupyter_config/custom/custom.js']},
     )
