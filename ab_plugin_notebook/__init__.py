@@ -12,6 +12,7 @@ class Plugin(ab.Plugin):
 
     def __init__(self):
         ab.Plugin.__init__(self, infos)
+        self.server = None
 
     def load(self):
         files_path = bw.projects.request_directory(f"plugins/{infos['name']}/files")
@@ -29,10 +30,17 @@ class Plugin(ab.Plugin):
         self.tabs = [self.rightTab, self.leftTab]
 
     def close(self):
-        self.server.kill()
+        self.server_kill()
 
     def remove(self):
-        self.server.kill()
+        self.server_kill()
 
     def delete(self):
-        self.server.kill()
+        self.server_kill()
+
+    def server_kill(self):
+        try:
+            self.server.kill()
+        except:
+            print("Plugin-Notebook: server not running")
+            pass
