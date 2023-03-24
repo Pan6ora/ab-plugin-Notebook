@@ -18,6 +18,8 @@ class Plugin(ab.Plugin):
         self.server = None
 
     def load(self):
+        if self.server:
+            self.server_kill()
         files_path = bw.projects.request_directory(f"plugins/ab_plugin_notebook/files")
         config_path = pkg_resources.resource_filename(__name__, 'jupyter_config')
         
