@@ -22,11 +22,13 @@ class Plugin(ab.Plugin):
             self.server_kill()
         files_path = bw.projects.request_directory(f"plugins/ab_plugin_notebook/files")
         config_path = pkg_resources.resource_filename(__name__, 'jupyter_config')
+        current_env = os.environ.copy()
+        current_env["JUPYTER_CONFIG_DIR"] = config_path
         
         self.server = subprocess.Popen([
-                        "env", f"JUPYTER_CONFIG_DIR={config_path}",
                         "jupyter","notebook",
                         f"--notebook-dir={files_path}"],
+                        env=current_env,
                         stdin=None)
         sleep(2)
 
